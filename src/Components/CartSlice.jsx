@@ -23,6 +23,13 @@ const CartSlice = createSlice({
 
         clearCart(state) {
             state.cartItems = [];
+        },
+
+        increaseItemQuantity(state, action) {
+            const itemToIncrease = state.cartItems.find(item => item.id === action.payload);
+            if (itemToIncrease) {
+                itemToIncrease.quantity += 1;
+            }
         }
     }
 });
