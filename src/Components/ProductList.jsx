@@ -3,21 +3,20 @@ import './ProductList.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItemToCart } from './CartSlice';// Action to add product to cart
 
-const dispatch = useDispatch();
-
-const cartItems = useSelector(state => state.cart.cartItems); // Get cart items globally
-
-const handleAddToCart = product => {
-    dispatch(addItemToCart(product)); // Add product to cart
-};
-
 const ProductList = () => {
+    const dispatch = useDispatch();
+
+    const cartItems = useSelector(state => state.cart.cartItems); // Get cart items globally
 
     const products = [
         { id: 1, name: 'Product A', price: 60 },
         { id: 2, name: 'Product B', price: 75 },
         { id: 3, name: 'Product C', price: 30 },
     ];
+
+    const handleAddToCart = product => {
+        dispatch(addItemToCart(product)); // Add product to cart
+    };
 
     return (
         <div className="product-list">
